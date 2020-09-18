@@ -1,3 +1,4 @@
+import { CompanyListResolver } from './resolvers/companyListResolver';
 import { HomeCanActivateGuard } from './Guards/home-can-activate.guard';
 import { SigninOidcComponent } from './oidc/signin-oidc/signin-oidc.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -7,6 +8,7 @@ import { TodoTableComponent } from './components/todo-table/todo-table.component
 import { RedirectSilentRenewComponent } from './oidc/redirect-silent-renew/redirect-silent-renew.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './Guards/auth.guard';
+import { NewOrderComponent } from './components/navbar/new-order/new-order.component';
 
 
 
@@ -24,14 +26,14 @@ const routes: Routes = [
   },
   {
     path: 'nav',
-    canActivate: [AuthGuard],
+   // canActivate: [AuthGuard],
     component: NavbarComponent,
    // outlet: 'unauthorizedRouterOutlet',
     data: { CanAccessRoles: { baseRole: ['Erp'], secondaryRoles: [] }},
     children: [
       {
         path: 'Todo-List',
-        canActivate: [AuthGuard],
+       // canActivate: [AuthGuard],
         component: TodoTableComponent,
        // outlet: 'authorizedRouterOutlet',
         data: {
@@ -47,8 +49,9 @@ const routes: Routes = [
       },
       {
         path: 'newOrder',
-        canActivate: [AuthGuard],
-        component: TodoTableComponent,
+       // canActivate: [AuthGuard],
+        component: NewOrderComponent,
+        resolve: {companyList: CompanyListResolver},
        // outlet: 'authorizedRouterOutlet',
         data: {
           CanAccessRoles:

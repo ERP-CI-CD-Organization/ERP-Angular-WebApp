@@ -1,3 +1,4 @@
+import { CompanyListResolver } from './resolvers/companyListResolver';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -44,7 +45,8 @@ import { APP_INITIALIZER } from '@angular/core';
 import { TabGroupService } from './services/tabgroup.service';
 import { HomeCanActivateGuard } from './Guards/home-can-activate.guard';
 import { NewOrderComponent } from './components/navbar/new-order/new-order.component';
-
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatSelectModule} from '@angular/material/select';
 export interface State {
   router: RouterReducerState;
 }
@@ -104,6 +106,7 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
     MatBadgeModule,
     MatTabsModule,
     MatCardModule,
+    MatSelectModule,
     // StoreModule.forRoot(rootStore, {
     //   runtimeChecks: {
     //     strictStateSerializability: true,
@@ -136,6 +139,7 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
     //        }
     //     }),
     AuthModule.forRoot(),
+    MatStepperModule
   ],
   providers: [
     TabGroupService,
@@ -160,6 +164,9 @@ export function configureAuth(oidcConfigService: OidcConfigService) {
     },
     AuthGuard,
     HomeCanActivateGuard,
+
+    // resolvers
+    CompanyListResolver,
   ],
   bootstrap: [AppComponent]
 })
