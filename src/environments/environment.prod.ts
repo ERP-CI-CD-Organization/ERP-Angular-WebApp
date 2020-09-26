@@ -7,7 +7,7 @@ export const environment = {
   erpApiBase, // 和上方的一样就不需要写类型
   openIdConnectSettings: {
     authority: idpBase,
-    client_id: 'ERP-Angular-WebApp',
+    client_id: 'ERP-webapp',
     redirect_uri: angularErpBase + '/signin-oidc', // 登陆成功后跳转该Url
     post_logout_redirect_uri: angularErpBase, // 登出后 跳转到该url
     silent_redirect_uri: angularErpBase + '/redirect-silentrenew', // 静默刷新access_token后跳转到该uri
