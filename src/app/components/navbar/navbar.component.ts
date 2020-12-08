@@ -7,6 +7,9 @@ import { map, shareReplay } from 'rxjs/operators';
 import { SignalRService } from 'src/app/services/signal-r.service';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
+import { UserProfile } from 'src/app/models/userIdentity';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
   selector: 'app-navbar',
@@ -21,11 +24,17 @@ export class NavbarComponent implements OnInit, AfterViewInit {
       shareReplay()
     );
 
+    isAuth: Observable<boolean>;
+    currentUser: UserProfile;
+    jwtHelper = new JwtHelperService();
   constructor(private breakpointObserver: BreakpointObserver,
               public authService: AuthService,
+              private oidcSecurityServices: OidcSecurityService,
               private signalRService: SignalRService,
               private httpClient: HttpClient) {
-       this.NavMenulist = [
+              this.isAuth =  this.oidcSecurityServices.checkAuth();
+              this.currentUser = this.jwtHelper.decodeToken(this.oidcSecurityServices.getIdToken());
+              this.NavMenulist = [
       { name: '订单管理', isOpened: true, subMenuList : [
         {
           name: '销售开单',

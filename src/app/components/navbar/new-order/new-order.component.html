@@ -1,4 +1,71 @@
-<mat-horizontal-stepper #stepper>
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.xs="column">
+  <form [formGroup]="firstFormGroup" fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.xs="column" fxFlexFill>
+    <ng-template matStepLabel>基本信息</ng-template>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Favorite animal</mat-label>
+      <mat-select formControlName="animalContrl" >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let company of companyList" [value]="company.id">
+          {{company.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+   
+      <button mat-button matStepperNext class="fullWidth">下一步</button>
+   
+  </form>
+
+  <form [formGroup]="firstFormGroup" fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.xs="column" fxFlexFill>
+    <ng-template matStepLabel>基本信息</ng-template>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Favorite animal</mat-label>
+      <mat-select formControlName="animalContrl" >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let company of companyList" [value]="company.id">
+          {{company.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+    <mat-form-field class="mat-form-field">
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+    </mat-form-field>
+   
+      <button mat-button matStepperNext class="fullWidth">下一步</button>
+   
+  </form>
+
+</div>
+
+<!-- <mat-horizontal-stepper #stepper>
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup" fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.xs="column" fxFlexFill>
         <ng-template matStepLabel>基本信息</ng-template>
@@ -56,4 +123,4 @@
       </div>
      
     </mat-step>
-  </mat-horizontal-stepper>
+  </mat-horizontal-stepper> -->
