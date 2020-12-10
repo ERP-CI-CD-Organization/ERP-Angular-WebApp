@@ -8,7 +8,7 @@ import { Todo } from '../models/todo';
   providedIn: 'root'
 })
 export class TodoService {
-  apiUrl: string = environment.erpApiBase;
+  apiUrl: string = environment.erpApiUrl;
   constructor(private httpClient: HttpClient) { }
   getAllToDo(): Observable<Todo[]>{
    return this.httpClient.get<Todo[]>(this.apiUrl + '/Todo/GetToDoList');

@@ -15,11 +15,11 @@ export class CustomerService {
 
   readCustomerByKeyword(keywork: string): Observable<Customer[]>
   {
-    return this.httpClient.get<Customer[]>(environment.erpApiBase + '/customer/keyword=' + keywork);
+    return this.httpClient.get<Customer[]>(environment.erpApiUrl + '/customer/keyword=' + keywork);
   }
 
 
   readCompanyList(): Observable<Company[]> {
-    return this.httpClient.get<Company[]>(environment.erpApiBase + '/customer/companylist');
+    return this.httpClient.get<Company[]>(environment.erpApiUrl + '/customer/companylist');
   }
 }

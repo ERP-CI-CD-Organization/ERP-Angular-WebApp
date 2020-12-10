@@ -1,10 +1,10 @@
 export const idpBase = 'http://www.erp.com:30090'; // 授权服务端点
-export const erpApiBase = 'http://localhost:5000'; // ERP的API
+export const erpApiUrl = 'http://localhost:5000'; // ERP的API
 export const angularErpBase = 'http://www.erp.com:30080'; // 本spa的地址
 
 export const environment = {
   production: true,
-  erpApiBase, // 和上方的一样就不需要写类型
+  erpApiUrl, // 和上方的一样就不需要写类型
   openIdConnectSettings: {
     authority: idpBase,
     client_id: 'ERP-webapp',
