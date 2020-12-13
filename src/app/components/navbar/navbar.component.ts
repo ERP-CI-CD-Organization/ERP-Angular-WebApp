@@ -1,15 +1,15 @@
-import { AuthService } from './../../services/auth.service';
-import { NavMenu } from './../../models/NavMenu';
-import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { HttpClient } from '@angular/common/http';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
-import { SignalRService } from 'src/app/services/signal-r.service';
-import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
-import { OidcSecurityService } from 'angular-auth-oidc-client';
 import { UserProfile } from 'src/app/models/userIdentity';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { SignalRService } from 'src/app/services/signal-r.service';
+import { environment } from 'src/environments/environment';
+import { NavMenu } from './../../models/NavMenu';
+import { AuthService } from './../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -439,7 +439,7 @@ export class NavbarComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.signalRService.startConnection();
     this.signalRService.ActivateBranchSettingsDataListener(this.authService.currentUser.branchId);
-    this.startHttpRequest();
+    // this.startHttpRequest();
   }
   ngOnInit(): void {
 

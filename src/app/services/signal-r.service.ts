@@ -1,9 +1,8 @@
-import { environment } from './../../environments/environment';
-import { BranchSettings } from './../models/branchSettings';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
-import { HttpClient } from '@angular/common/http';
-import { pipe } from 'rxjs';
+import { environment } from './../../environments/environment';
+import { BranchSettings } from './../models/branchSettings';
 @Injectable({
   providedIn: 'root'
 })
@@ -48,7 +47,7 @@ public startConnection = () => {
     });
   }
   // join in group just like join in chat room
-  joinInGroup(connectionId: string): void  { 
+  joinInGroup(connectionId: string): void  {
     this.http.post(this.baseUrl + '/AdvancedSetting/JoinGroup/' + connectionId, {}).subscribe(() => {
       console.log('group joined');
     }, error => {
